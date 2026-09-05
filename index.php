@@ -14,7 +14,7 @@
         <ul>
             <li><a href="index.php"></a>Главная</li>
             <li><a href="index.php?p=fundamentals_syntax"></a>Основы синтаксиса</li>
-            <li><a href="index.php?p=2"></a>Страница 2</li>
+            <li><a href="index.php?p=independent_work"></a>Самостоятельная работа</li>
         </ul>
     </nav>
 </header>

@@ -4,7 +4,8 @@ echo "<h2>Основы синтаксиксевена</h2>";
 
 // Однострочный комментарий
 
-/* Многострочный комментарий*/
+/* Многострочный
+     комментарий*/
 
 // Опертаор вывода
 echo "Вывод текста";
@@ -21,8 +22,8 @@ echo $variable;
 
 echo "<p>Текст $number</p>";
 // Оператор конкатенации - операция склеивания двух или более линейных объектов (чаще всего текстовых строк)
-echo '<p>Тебя ебали  ' . $number . ' раз </p>';
-echo "<p>Тебя ебли  " . $number . " тысяч раз в жопу </p>";
+echo '<p>Тебя накрывали  ' . $number . ' раз </p>';
+echo "<p>Тебя посылали  " . $number . " тысяч раз в жопу </p>";
 
 echo"<p>Текст $number флепок</p>";
 echo"<p>Текст {$number}флепок</p>";
@@ -42,7 +43,6 @@ $a = "10";
 $b = 10;
 echo "<br>" . ($a == $b) . "- истинно";
 echo "<br> " . ($a === $b) . "- ложно";
-
 
 // Конструкция if..else
 if ($a >= $b) {
@@ -143,8 +143,43 @@ foreach($mas4 as $key => $el){
 // Оператор выводов сложных типов print_r
 print_r ($mas4);
 
+// Ассоциативный массив
+$colors = ["red" => "Красный", "green" => "Зеленый", "blue" => "Синий"];
+print_r($colors);
+echo ($colors["red"]);
+echo ($colors["green"]);
+echo ($colors["blue"]);
 
+echo "<br>";
+foreach($colors as $index => $color){
+    echo $color . "<br>";
+}
 
+$data = [1=>"Стас", "four" => "Егор", 20 => "Кирюха", 1.3 => "Иван"];
+print_r($data[1.3]);
+
+// Многомерный массив
+$users = [
+    ["id"=>1,"Stas","Student"],
+    ["id"=>70,"Egor","Driver"],
+   "two" => ["id"=>178,"Dan","Programmer"]
+];
+echo "<h2>Двухмерный массив</h2>";
+$users[2][1] = "Кирилл";
+print_r($users);
+
+// Вывод многомерного массива
+echo "<table border='1'>";
+foreach ( $users as $user) {
+    echo "<tr>";
+   foreach($user as $key => $value){
+       echo "<td>" . $value . "</td>";
+   }
+   echo "</tr>";
+}
+echo "</table>";
+
+echo $users["two"]["id"];
 
 
 
