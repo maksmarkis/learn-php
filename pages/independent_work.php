@@ -311,17 +311,200 @@ $arr30 = [
         'salary' => 3000,
     ],
 ];
-foreach ($arr30 as $key1 => $sub) {
-    foreach ($sub as $key2 => $elem) {
-        echo $key1 . ' ' . $key2 . ' ' . $elem . '<br>';
+foreach ($arr30 as $index => $user) {
+    foreach ($user as $key => $value) {
+        echo "{$key}: {$value}";
+    }
+    echo "<br>";
+}
+
+echo "<br>";
+$arr31 = [
+    'group1'  => ['user11', 'user12', 'user13', 'user43'],
+    'group2'  => ['user21', 'user22', 'user23'],
+    'group3'  => ['user31', 'user32', 'user33'],
+    'group4'  => ['user41', 'user42', 'user43'],
+    'group5'  => ['user51', 'user52'],
+
+];
+
+foreach ($arr31 as $group => $users) {
+    foreach ($users as $user) {
+        echo "{$group} - {$user}<br>";
     }
 }
 
+echo "<br>" . "<h2>Заполнение многомерных массивов PHP</h2>";
+
+$arr32 = [];
+
+for ($i = 0; $i < 3; $i++) {
+    $subArray = [];
+    for ($j = 1; $j <= 5; $j++) {
+        $subArray[] = $j;
+    }
+    $arr32[] = $subArray;
+}
+echo '<pre>';
+print_r($arr32);
+echo '</pre>';
+
+echo "<br>";
+
+$arr33 = [];
+
+for ($i = 0; $i < 3; $i++) {
+    $subArray = [];
+    for ($j = 0; $j < 4; $j++) {
+        $subArray[] = 'x';
+    }
+    $arr33[] = $subArray;
+}
+
+echo '<pre>';
+print_r($arr33);
+echo '</pre>';
+
+echo "<br>";
 
 
+$arr34 = [];
+
+for ($i = 0; $i < 3; $i++) {
+    $subArray1 = [];
+    for ($j = 0; $j < 2; $j++) {
+        $subArray2 = [];
+        for ($k = 1; $k <= 5; $k++) {
+            $subArray2[] = $k;
+        }
+        $subArray1[] = $subArray2;
+    }
+    $arr34[] = $subArray1;
+}
+
+echo '<pre>';
+print_r($arr34);
+echo '</pre>';
+
+echo "<br>" . "<h2>Заполнение многомерных массивов числами по порядку в PHP</h2>";
 
 
+$arr35 = [];
+$counter = 1;
 
+for ($i = 0; $i < 4; $i++) {
+    $subArray = [];
+    for ($j = 0; $j < 2; $j++) {
+        $subArray[] = $counter;
+        $counter++;
+    }
+    $arr35[] = $subArray;
+}
+
+echo '<pre>';
+print_r($arr35);
+echo '</pre>';
+
+echo "<br>";
+$arr36 = [];
+$counter = 2;
+
+for ($i = 0; $i < 4; $i++) {
+    $subArray = [];
+    for ($j = 0; $j < 3; $j++) {
+        $subArray[] = $counter;
+        $counter += 2;
+    }
+    $arr36[] = $subArray;
+}
+
+echo '<pre>';
+print_r($arr36);
+echo '</pre>';
+
+echo "<br>";
+$arr37 = [];
+$counter = 1;
+
+for ($i = 0; $i < 2; $i++) {
+    $subArray1 = [];
+    for ($j = 0; $j < 2; $j++) {
+        $subArray2 = [];
+        for ($k = 0; $k < 2; $k++) {
+            $subArray2[] = $counter;
+            $counter++;
+        }
+        $subArray1[] = $subArray2;
+    }
+    $arr37[] = $subArray1;
+}
+
+echo '<pre>';
+print_r($arr37);
+echo '</pre>';
+
+echo "<br>" . "<h2>Массив ассоциативных массивов в PHP</h2>";
+
+$products = [
+    ['name' => 'prod1', 'price' => 100, 'amount' => 5],
+    ['name' => 'prod2', 'price' => 200, 'amount' => 6],
+    ['name' => 'prod3', 'price' => 300, 'amount' => 7],
+];
+
+foreach ($products as $product) {
+    echo "{$product['name']} — {$product['price']} руб. ({$product['amount']} шт.)<br>";
+}
+
+echo "<br>" . "<h2>Массив ассоциативных массивов в PHP</h2>";
+
+$data = [
+    ['country' => 'country1', 'city' => 'city1'],
+    ['country' => 'country2', 'city' => 'city2'],
+    ['country' => 'country1', 'city' => 'city3'],
+    ['country' => 'country1', 'city' => 'city4'],
+    ['country' => 'country3', 'city' => 'city5'],
+    ['country' => 'country2', 'city' => 'city6'],
+    ['country' => 'country3', 'city' => 'city7'],
+];
+
+$result = [];
+
+foreach ($data as $item) {
+    $country = $item['country'];
+    $city    = $item['city'];
+
+    $result[$country][] = $city;
+}
+
+echo '<pre>';
+print_r($result);
+echo '</pre>';
+
+echo "<br>" . "<h2>Степень и корень в PHP</h2>";
+
+echo 2 ** 10;
+echo "<br>";
+echo sqrt(245);
+
+echo "<br>";
+$arr = [4, 2, 5, 19, 13, 0, 10];
+
+$sum = 0;
+foreach ($arr as $value) {
+    $sum += $value ** 2;
+}
+
+$result = sqrt($sum);
+echo $result;
+
+echo "<br>";
+$num = 379;
+
+echo round(sqrt($num));
+echo '<br>';
+echo round(sqrt($num), 1);
+echo '<br>';
+echo round(sqrt($num), 2);
 
 
 

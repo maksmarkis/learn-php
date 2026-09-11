@@ -181,9 +181,165 @@ echo "</table>";
 
 echo $users["two"]["id"];
 
+// Функции
+function Hello()
+{
+    echo "<br> Привет! <br>";
+}
+function Summa($a,$b)
+{
+    return $a + $b;
+}
+// Вызов функции
+Hello();
+echo Summa(2,3);
+// либо создаем переменную $summa = Summa(2,3);
+
+// Необязательные параметры функции
+function displayInfo($name, $age = 18)
+{
+    echo"<p>Имя {$name}, возраст {$age}</p>";
+
+}
+displayInfo("DAn",17);
+displayInfo("DAsha");
+
+// Именованные параметры
+displayInfo(age:38,name:"Василий");
+
+function test($name,$age,$sex,$surname)
+{
+    echo"<p>Фамилия: {$surname}, имя: {$name}, возраст: {$age}, пол: {$sex}</p>";
+
+}
+
+test("Popa",67,"man","anton");
 
 
+// Переменное количество параметров
+// Оператор ... (оператор распаковки): упаковка аргументов в обычный массив, распаковка массива
+function displayUsers(...$names)
+{
+    foreach ($names as $name){
+        echo"<p>{$name}</p>";
+    }
 
+}
+
+displayUsers3("Antnon","William ","John ","Thomas ","Alexander ");
+
+
+function displayUsers3($prepod,...$names)
+{
+    echo"<p>Преподователь:{$prepod}</p> Студенты:";
+    foreach ($names as $name){
+        echo"<p>{$name}</p>";
+    }
+
+}
+displayUsers3("Antnon","William ","John ","Thomas ","Alexander ");
+displayUsers3("Василий","William ","Anton", "John ","Thomas ","Alexander ");
+
+// Анонимные функции
+$hi = function ($name) {
+    echo "<p>Приветствую вас! {$name}</p>";
+};
+// Вызов анонимной функции
+$hi("товарищ Сталин");
+
+// Замыкания
+// Выражение use() получает внешние переменные
+$number = 1005;
+$name = "Алик";
+function Info($number, $name) {
+  echo "<p>{$name}должен мне {$number} рубасиков</p>";
+};
+Info($number,$name);
+
+// Стрелочные функции
+$info = fn() => $name . "должен мне" . $number . " рубасиков";
+echo $info();
+
+// Генераторы
+
+function generator()
+{
+    yield 18;
+    yield 19;
+    yield 20;
+}
+
+foreach(generator() as $value){
+    echo "<p>{$value}</p>";
+}
+print_r(generator());
+
+// Ссылки
+$one = "Первое значение";
+$two = &$one;
+$two = "Второе значение";
+echo $one;
+echo $two;
+
+function inf(&$b)
+{
+    echo $b *=25;
+}
+$a = 10;
+inf($a);
+echo $a;
+
+// Глобальнй массив позволяющий обращаться к переменным программы по их жизни
+//echo $CLOBALS["two"];
+
+// Констатнты
+const PI = 3.14;
+echo PI;
+
+define("PII",3.14);
+echo PII;
+
+// Магические константы
+
+echo "<br>" . __FILE__ . "- хранит полный путь и имя текущего файла<br>";
+echo "<br>" . __LINE__ . "- хранит текущий номер строки, которую обрабатывает интерпритатор<br>";
+echo "<br>" . __DIR__ . "- хранит каталог текущего файла<br>";
+function f1()
+{
+    echo "<br>" . __FUNCTION__ . "- название обрабатывающей функции<br>";
+}
+f1();
+echo "<br>" . __CLASS__ . "- название текущего класса<br>";
+echo "<br>" . __TRAIT__ . "- название текущего трейта<br>";
+echo "<br>" . __METHOD__ . "- название обрабатывмаемого метода<br>";
+echo "<br>" . __NAMESPACE__ . "- название текущего пространства имен<br>";
+
+
+// Проверка существования констант
+if(__FILE__){
+    echo "Путь существует";
+} else {
+    echo "Путь не существует";
+}
+
+if (!__CLASS__){
+    echo "Класс не существует";
+} else {
+    echo "Класс существует";
+}
+
+// Проверка существования переменных
+$a = null;
+if ($a){
+    echo "Переменная A существует и = {$a}";
+}
+// Проверка переменной на пустоту
+if (empty($a)){
+    echo "Переменная А имеет пустое значение";
+}
+// Уничтожение переменной
+unset($a);
+//echo $a; - выдаст ошибку, так как $a уже не существует
 
 
 
