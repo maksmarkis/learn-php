@@ -15,6 +15,8 @@
             <li><a href="index.php"></a>Главная</li>
             <li><a href="index.php?p=fundamentals_syntax"></a>Основы синтаксиса</li>
             <li><a href="index.php?p=independent_work"></a>Самостоятельная работа</li>
+            <li><a href="index.php?p=form_processing"></a>Отправка данных на сервер</li>
+            <li><a href="index.php?p=form"></a>Форма</li>
         </ul>
     </nav>
 </header>

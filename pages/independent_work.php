@@ -497,7 +497,7 @@ foreach ($arr as $value) {
 $result = sqrt($sum);
 echo $result;
 
-echo "<br>";
+echo "<br>" . "<h2>Функции округления в PHP</h2>";
 $num = 379;
 
 echo round(sqrt($num));
@@ -506,9 +506,240 @@ echo round(sqrt($num), 1);
 echo '<br>';
 echo round(sqrt($num), 2);
 
+echo '<br>';
+$num = 587;
+
+$result = [
+    'floor' => floor(sqrt($num)),
+    'ceil'  => ceil(sqrt($num)),
+];
+
+var_dump($result);
+
+echo "<br>" . "<h2>Экстремальные числа в PHP</h2>";
+
+$arr38 = [4, -2, 5, 19, -130, 0, 10];
+echo min($arr38);
+echo "<br>";
+echo max($arr38);
+echo "<br>";
+$a = 43;
+$b = 67;
+$sum = $a - $b;
+echo abs($sum);
+
+echo "<br>" . "<h2>Математические операции над массивами в PHP</h2>";
+$arr40 = [1, 2, 3, 4, 5];
+echo array_sum($arr40);
+echo "<br>";
+echo array_product($arr40);
+
+echo "<br>";
+$arefm = array_sum($arr40) / count($arr40);
+echo $arefm;
+
+echo "<br>" . "<h2>Длина строки в PHP</h2>";
+
+$str = 'abcde';
+echo strlen($str);
+echo "<br>";
+$str1 = "Привет";
+echo mb_strlen($str1);
+echo "<br>";
+$password ='dsdsds2dqwdqwdqw';
+$len = strlen($password);
+
+if ($len > 5 && $len < 10) {
+    echo 'Пароль подходит';
+} else {
+    echo 'Нужно придумать другой пароль';
+}
+echo "<br>" . "<h2>Регистр символов в PHP</h2>";
+
+$str2 = 'php';
+echo strtoupper($str2);
+echo "<br>";
+
+$str3 = 'PHP';
+echo strtolower($str3);
+echo "<br>";
+
+$str4 = 'london';
+echo ucfirst($str4);
+echo "<br>";
+
+$str5 = 'London';
+echo lcfirst($str5);
+echo "<br>";
+
+$str6 = 'london is the capital of great britain';
+echo ucwords($str6);
+echo "<br>";
+
+$str7 = strtolower('LONDON');
+echo ucfirst($str7);
+echo "<br>";
+
+$str8 = 'привет';
+echo mb_strtoupper($str8, 'UTF-8');
+
+echo "<br>";
+$str8 = 'ПРИВЕТ';
+echo mb_strtolower($str8, 'UTF-8');
+
+echo "<br>" . "<h2>Вырезание строк в в PHP</h2>";
+
+$str9 = 'html css php';
+echo substr($str9, 0, 4);
+echo "<br>";
+echo substr($str9, 5, 3);
+echo "<br>";
+echo substr($str9, 9, 3);
+
+echo "<br>";
+$str10 = 'abcdefgh';
+
+echo substr($str10, -3);
+echo "<br>";
+
+$str11 = 'abcdefgh';
+echo substr($str11, -3);
+echo "<br>";
+$str11 = 'http://example.com';
+
+if (strpos($str11, 'http://') === 0) {
+    echo 'Начинается на http://';
+} else {
+    echo 'Не начинается на http://';
+}
+
+echo "<br>";
+
+$str12 = 'https://example.com';
+
+if (strpos($str12, 'http://') === 0 || strpos($str12, 'https://') === 0) {
+    echo 'Начинается на http:// или https://';
+} else {
+    echo 'Не начинается';
+}
+echo "<br>";
+
+$str13 = 'image.png';
+
+if (strpos($str13, '.png') === strlen($str13) - 4) {
+    echo 'Заканчивается на .png';
+} else {
+    echo 'Не заканчивается на .png';
+}
+echo "<br>";
 
 
+$str14 = 'photo.jpg';
 
+if (substr($str14, -4) === '.png' || substr($str14, -4) === '.jpg') {
+    echo 'Заканчивается на .png или .jpg';
+} else {
+    echo 'Не заканчивается';
+}
+echo "<br>";
+$str15 = 'This is a long string';
+
+if (mb_strlen($str15) > 5) {
+    echo mb_substr($str15, 0, 5) . '...';
+} else {
+    echo $str15;
+}
+echo "<br>";
+
+$str16 = 'многобайтовые строки требуют особого подхода';
+$words = explode(' ', $str16);
+
+echo end($words);
+
+echo "<br>";
+$str17 = 'пример работы с кириллическими символами';
+
+// Разбиваем строку на слова
+$words1 = explode(' ', $str17);
+
+echo $words1[1];
+echo "<br>";
+echo $words1[3];
+
+echo "<br>" . "<h2>Проверка строк в PHP</h2>";
+$str18 = 'document.pdf';
+
+if (str_ends_with($str18, '.pdf')) {
+    echo 'Заканчивается на .pdf';
+} else {
+    echo 'Не заканчивается на .pdf';
+}
+echo "<br>";
+$str19 = 'https://example.com';
+
+if (substr($str19, 0, 8) === 'https://') {
+    echo 'Начинается на https://';
+} else {
+    echo 'Не начинается на https://';
+
+}
+echo "<br>";
+$str20 = 'The quick brown fox';
+
+if (str_contains($str20, 'fox')) {
+    echo 'Содержит подстроку fox';
+} else {
+    echo 'Не содержит подстроку fox';
+}
+echo "<br>";
+$str21 = 'image.png';
+
+if (str_ends_with($str21, '.png') || str_ends_with($str21, '.jpg')) {
+    echo 'Заканчивается на .png или .jpg';
+} else {
+    echo 'Не заканчивается на .png или .jpg';
+}
+echo "<br>";
+$str22 = 'admin@example.com';
+
+if (str_contains($str22, '@') && str_ends_with($str22, '.com')) {
+    echo 'Строка содержит @ и заканчивается на .com';
+} else {
+    echo 'Условие не выполнено';
+}
+echo "<br>" . "<h2>Поиск по строкам в PHP</h2>";
+
+$str23 = 'abc abc abc';
+
+echo strpos($str23, 'b');
+echo "<br>";
+$str24 = 'abc abc abc';
+
+echo strrpos($str24, 'b');
+echo "<br>";
+$str25 = 'abc abc abc';
+
+echo strpos($str25, 'b', 3);
+echo "<br>";
+$str26 = 'aaa aaa aaa aaa aaa';
+
+echo strpos($str26, ' ', strpos($str26, ' ') + 1);
+echo "<br>";
+$str27 = 'example..com';
+
+if (str_contains($str27, '..')) {
+    echo 'Есть две точки подряд';
+} else {
+    echo 'Нет двух точек подряд';
+}
+echo "<br>";
+$str28 = 'http://example.com';
+
+if (str_starts_with($str28, 'http://')) {
+    echo 'Начинается на http://';
+} else {
+    echo 'Не начинается на http://';
+}
 
 
 

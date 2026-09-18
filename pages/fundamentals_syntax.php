@@ -65,13 +65,13 @@ switch($a1){
 }
 
 // Оператор match (Сравнивает не только значение, но и тип данных)
-match($a1){
+/*match($a1){
     1 => "1",
     "10" => "Строка 10",
     10 => " Число 10",
     default => "Not found",
 };
-
+*/
 // Цикл for
 for($i=1;$i<=10;$i++){
     echo "<br>". $i;
@@ -205,7 +205,7 @@ displayInfo("DAn",17);
 displayInfo("DAsha");
 
 // Именованные параметры
-displayInfo(age:38,name:"Василий");
+//displayInfo(age:38,name:"Василий");
 
 function test($name,$age,$sex,$surname)
 {
@@ -257,8 +257,8 @@ function Info($number, $name) {
 Info($number,$name);
 
 // Стрелочные функции
-$info = fn() => $name . "должен мне" . $number . " рубасиков";
-echo $info();
+//$info = fn() => $name . "должен мне" . $number . " рубасиков";
+//echo $info();
 
 // Генераторы
 
@@ -340,6 +340,68 @@ if (empty($a)){
 // Уничтожение переменной
 unset($a);
 //echo $a; - выдаст ошибку, так как $a уже не существует
+echo "<h2>Операции с массивами</h2>";
+
+$users = ["Ivan","Anton","John","Thomas","Alexander","Jora","Stepan","Grisha","Aleksey"];
+print_r($users);
+
+// Проверка переменной, что она массив
+echo (is_array($users)) ? "<p>Да,это массив</p>" : "<p>Нет, это не массив</p>";
+
+// Размер массива
+echo "<p>В массиве USERS " . count($users). " элементов</p>";
+echo "<p>В массиве USERS " . sizeof($users). " элементов</p>";
+
+// Перемешивание элементов массива
+shuffle($users);
+echo "<br>";
+print_r($users);
+
+// Сбор набора переменных в ассоциативный массив, где ключами будут имена переменных
+$color = "black";
+$year = 2026;
+$game = "Minecraft";
+$data = compact('color','year','game');
+print_r($data);
+
+echo "<br>";
+echo "<br>";
+
+// Сортировка массива по возрастанию
+asort($users);
+print_r($users);
+
+
+echo "<br>";
+echo "<br>";
+// Сортировка массива по убываиню
+arsort($users);
+print_r($users);
+
+echo "<br>";
+echo "<br>";
+// Сортировка массива по ключам (по возрастанию)
+ksort($data);
+print_r($users);
+
+echo "<br>";
+echo "<br>";
+// Сортировка массива по ключам ( по убыванию)
+krsort($data);
+print_r($users);
+
+// Естественная сортировка ( с учетом)
+$os = ["Windows 7","Windows 8","Windows 8.1","Windows 10","Windows 11"];
+echo "<br>";
+echo "<br>";
+natsort($os);
+print_r($os);
+
+
+
+
+
+
 
 
 
